@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import useFetch from './components/useFetch'
+import SearchBar from './components/SearchBar'
+import Show from './components/Show'
+import {BrowserRouter as Router , Route , Switch} from 'react-router-dom'
 
-function App() {
+const App = () => {
+  const { data:countries,isPending,error } = useFetch('https://restcountries.eu/rest/v2/all');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <div className="container">
+          <div className="card mt-4">
+              <div className="card-header text-center">
+                <h1 className="fs-4 fw-bold">World Ranking</h1>
+              </div>
+              <Switch>
+                  <Route exact path="/">
+                    <div className="card-body">
+                      
+                      { countries && <SearchBar countries={countries} /> }
+
+                      { error && <div>error..</div> }
+                      { isPending && <div>Loading....</div>}
+                    </div>
+                  </Route>
+                  <Route path="/country/:id">
+                      <Show />
+                  </Route>
+              </Switch>
+            </div> 
+        </div>
+    </Router>
   );
 }
 
