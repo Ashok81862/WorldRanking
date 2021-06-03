@@ -22,8 +22,8 @@ const Table = ({ countries }) => {
                             <Link to={`country/${country.alpha3Code}`}>{country.name}</Link>
                         </td>
                         <td>{ country.population}</td>
-                        <td>147181</td>
-                        <td>32.8 %</td>
+                        <td>{ country.area }</td>
+                        <td>{ country.gini }</td>
                     </tr>
                     ))}
                   </tbody>
