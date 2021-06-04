@@ -16,7 +16,7 @@ const override = css`
 function Show() {
     const { id } = useParams()
     const {data:country, isPending, error} = useFetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
-    console.log(country)
+    //console.log(country)
     return (
         <div>
             { error && <div>error..</div> }
@@ -104,7 +104,7 @@ function Show() {
                                             <span className="fw-bold">Neighbouring Countries</span>
                                         </td>
                                         <td>
-                                            {country.borders.map((border) => border).join(",")}
+                                            {country.borders.map((name) => name).join(",")}
                                         </td>
                                     </tr>
                                     <tr>
