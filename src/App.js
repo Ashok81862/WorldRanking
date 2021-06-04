@@ -2,6 +2,17 @@ import useFetch from './components/useFetch'
 import SearchBar from './components/SearchBar'
 import Show from './components/Show'
 import {BrowserRouter as Router , Route , Switch} from 'react-router-dom'
+import PropagateLoader from "react-spinners/PropagateLoader";
+import { css } from "@emotion/react";
+
+const override = css`
+  display: flex;
+  justify-content: center;
+  text-items: center;
+  margin: 20px auto;
+  border-color: black;
+`;
+
 
 const App = () => {
   const { data:countries,isPending,error } = useFetch('https://restcountries.eu/rest/v2/all');
@@ -20,7 +31,7 @@ const App = () => {
                       { countries && <SearchBar countries={countries} /> }
 
                       { error && <div>error..</div> }
-                      { isPending && <div>Loading....</div>}
+                      { isPending && <PropagateLoader  css={override} />}
                     </div>
                   </Route>
                   <Route path="/country/:id">

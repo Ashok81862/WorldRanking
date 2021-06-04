@@ -1,6 +1,16 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import useFetch from './useFetch'
+import PropagateLoader from "react-spinners/PropagateLoader";
+import { css } from "@emotion/react";
+
+const override = css`
+  display: flex;
+  justify-content: center;
+  text-items: center;
+  margin: 20px auto;
+  border-color: black;
+`;
 
 
 function Show() {
@@ -10,7 +20,7 @@ function Show() {
     return (
         <div>
             { error && <div>error..</div> }
-            { isPending && <div>Loading....</div>}
+            { isPending && <PropagateLoader  css={override} />}
 
             { country && (
                 <>
