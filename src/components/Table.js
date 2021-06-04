@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 
 const Table = ({ countries }) => {
     return (
-        <div>
+        <div className="table-responsive-md"> 
             <table className="table">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Country Name</th>
+                      <th scope="col">Code</th>
+                      <th scope="col">Country</th>
                       <th scope="col">Population</th>
-                      <th scope="col">Area</th>
+                      <th scope="col">Area(km<sup>2</sup>)</th>
                       <th scope="col">GiNi</th>
                     </tr>
                   </thead>

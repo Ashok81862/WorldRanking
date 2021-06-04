@@ -9,9 +9,9 @@ const App = () => {
   return (
     <Router>
         <div className="container">
-          <div className="card mt-4">
+          <div className="card my-4">
               <div className="card-header text-center">
-                <h1 className="fs-4 fw-bold">World Ranking</h1>
+                <h1 className="fs-4 fw-bold">World Ranks</h1>
               </div>
               <Switch>
                   <Route exact path="/">
