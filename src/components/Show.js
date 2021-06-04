@@ -16,7 +16,7 @@ const override = css`
 function Show() {
     const { id } = useParams()
     const {data:country, isPending, error} = useFetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
-    //console.log(country)
+    
     return (
         <div>
             { error && <div>error..</div> }
